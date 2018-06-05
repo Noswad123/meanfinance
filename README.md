@@ -6,3 +6,4 @@
 <p>mongoimport --db CDFinance --collection stocks --type csv --headerline api/data/amex.csv </p>
 
 <p>Here's my change -Mike</p>
+SC
