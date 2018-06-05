@@ -1,4 +1,4 @@
-<h1>Find Stocks</h1>
+<h1>Deposit Funds</h1>
 <div ng-if="vm.message" class="alert alert-success" role="alert">
   <p>{{ vm.message }}</p>
 </div>
@@ -7,7 +7,7 @@
 </div>
 <form ng-hide="vm.message" name="find" ng-submit="vm.deposit()">
   <div class="form-group">
-    <label for="amount">amount</label>
+    <label for="amount">Amount</label>
     <input type="number" class="form-control" id="amount" placeholder="Amount" ng-model="vm.amount">
   </div>
   <button type="submit" class="btn btn-success">Deposit Funds</button>
