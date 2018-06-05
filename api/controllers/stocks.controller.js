@@ -4,6 +4,9 @@ var https = require('https');
 var stockPrice = require('./shared/stockPrice.js')
 
 module.exports.stocksGetPrice = function(req, res) {
+
+  var isFound=false;
+
   var symbols = req.params.symbol
   var symbol = symbols.toLocaleUpperCase();
   console.log("looking up symbol:", symbol);
