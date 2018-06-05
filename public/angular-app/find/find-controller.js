@@ -14,7 +14,6 @@ function FindController($http) {
     }).catch(function(error) {
       if (error) {
         vm.error = error;
-        console.log(vm.error);
       }
     })
   }
