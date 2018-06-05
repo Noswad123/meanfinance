@@ -2,6 +2,7 @@ angular.module('cdfinance').controller("FindController", FindController);
 
 function FindController($http) {
   var vm = this;
+  var isfound = true;
   console.log("findController");
   vm.find = function() {
     var symbol = vm.symbol
@@ -13,9 +14,15 @@ function FindController($http) {
       vm.stockprice = stockprice;
     }).catch(function(error) {
       if (error) {
+        isfound=false;
         vm.error = error;
         console.log(vm.error);
       }
+      else
+      {
+        isfound=true;
+      }
+      
     })
   }
 }

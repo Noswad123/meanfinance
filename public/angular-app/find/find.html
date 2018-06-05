@@ -2,7 +2,7 @@
 <div ng-if="vm.message" class="alert alert-success" role="alert">
   <p>{{ vm.message }}</p>
 </div>
-<div ng-if="vm.error" class="alert alert-danger" role="alert">
+<div ng-if=!"vm.isfound" class="alert alert-danger" role="alert">
  The {{ vm.symbol }} does not exist.
 </div>
 <form ng-hide="vm.message" name="find" ng-submit="vm.find()">
@@ -12,7 +12,7 @@
   </div>
   <button type="submit" class="btn btn-success">find</button>
   
-  <div>
+  <div ng-if="vm.isfound">
     <p>{{vm.symbol}} is currently priced at {{vm.stockprice | currency}}</p>
   </div>
 </form>
