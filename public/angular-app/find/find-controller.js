@@ -14,13 +14,13 @@ function FindController($http) {
       vm.stockprice = stockprice;
     }).catch(function(error) {
       if (error) {
-        isfound=false;
+        isfound = false;
         vm.error = error;
         console.log(vm.error);
       }
       else
       {
-        isfound=true;
+        isfound = true;
       }
       
     })
