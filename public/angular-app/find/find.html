@@ -2,17 +2,15 @@
 <div ng-if="vm.message" class="alert alert-success" role="alert">
   <p>{{ vm.message }}</p>
 </div>
-<div ng-if="!vm.isFound" class="alert alert-danger" role="alert">
- The {{ vm.symbol }} does not exist.
-</div>
+
 <form ng-hide="vm.message" name="find" ng-submit="vm.find()">
   <div class="form-group">
     <label for="symbol">Symbol</label>
-    <input type="text" class="form-control" id="symbol" placeholder="Symbol" ng-model="vm.symbol" autocapitalize="characters">
+    <input type="text" class="form-control" id="symbol" placeholder="Symbol" ng-keyUp="vm.find()" ng-model="vm.symbol" autocapitalize="characters">
   </div>
   <button type="submit" class="btn btn-success">find</button>
   
   <div ng-if="vm.isFound">
-    <p>{{vm.symbol}} is currently priced at {{vm.stockprice | currency}}</p>
+    <p>{{vm.symbol}} is dcurrently priced at {{vm.stockprice | currency}}</p>
   </div>
 </form>

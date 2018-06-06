@@ -27,7 +27,7 @@
       <button type="submit" class="btn btn-sm btn-success">Login</button>
     </form>
     <ul ng-if="vm.isLoggedIn()" class="nav navbar-nav navbar-right">
-      <li><p class="navbar-text">Welcome back {{ vm.loggedInUser }}</p></li>
+      <li><p class="navbar-text">Welcome back {{ vm.username}}</p></li>
       <li><button class="navbar-btn btn-sm btn-info" ng-click="vm.logout()">Logout</button></li>
     </ul>
    </div>

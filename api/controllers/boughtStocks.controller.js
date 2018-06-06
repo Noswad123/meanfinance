@@ -3,8 +3,9 @@ var Stock = mongoose.model('Stock');
 var User = mongoose.model('User');
 var stockPrice = require('./shared/stockPrice.js')
 
+
 module.exports.bStocksGetAll = function(req, res) {
-  console.log("hello"); 
+  
   var username = req.params.username;
   console.log("looking for user", username);
   
@@ -15,7 +16,7 @@ module.exports.bStocksGetAll = function(req, res) {
         status : 200,
         message : user
       }
-      
+     
       if (err) {
         response.status = 500;
         response.message = err;
@@ -32,11 +33,18 @@ module.exports.bStocksGetAll = function(req, res) {
           .json(response.message);
       } else {
         console.log('found user');
+         
         //found the user. pull down the users stocks as well as the stocks current price
         var stocks = user.stocks;
         var prices = [];
-        stocks.forEach(function(stock) {
-          prices.push(stockPrice.returnPrice(stock._id))
+        var temp;
+        stocks.forEach( (stock) => {
+          stockPrice.returnPrice(stock._id)
+          //console.log(stockPrice.returnPrice("AAPL"));
+         temp= stockPrice.returnPrice("AAPL");
+          prices.push(temp);
+          console.log(temp);
+         
         });
         res
           .status(200)
@@ -44,6 +52,8 @@ module.exports.bStocksGetAll = function(req, res) {
       }
     })
 }
+
+
 
 module.exports.bStocksBuy = function(req, res) {
   var symbol = req.body.symbol;
@@ -108,6 +118,7 @@ module.exports.bStocksBuy = function(req, res) {
         
         //once authentication is built update the users stocks.
         //first check if he already has said stock...
+        console.log("did I make it?");
       }
     })
 }
