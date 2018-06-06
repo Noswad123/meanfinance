@@ -2,15 +2,15 @@
   <thead>
     <tr>
       <th>Symbol</th>
-      <th>Stocks</th>
+      <th>Shares</th>
       <th>Total</th>
     </tr>
   </thead>
   <tbody>
-    <tr ng-repeat="stock in vm.stocks" ng-init="counter = 0">
+    <tr ng-repeat="stock in vm.stocks.stocks" ng-init="counter = 0">
       <td>{{stock._id}}</td>
       <td>{{stock.amount}}</td>
-      <td>{{vm.prices[counter++] | currency}}</td>
+      <td>{{stock.prices}}</td>
     </tr>
     <tr>
       <td></td>
