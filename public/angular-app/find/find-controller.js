@@ -4,7 +4,7 @@ function FindController($http) {
   var vm = this;
   
   console.log("findController");
-  console.log(vm);
+ 
   vm.find = function() {
     var symbol = vm.symbol;
     
@@ -18,8 +18,6 @@ function FindController($http) {
       if (error) {
         vm.isFound=false;
         vm.error = error;
-        console.log("The stock is found:" + vm.isFound);
-        
       }
       else
       {

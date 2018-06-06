@@ -5,7 +5,7 @@ module.exports.getPrice = function(req, res, symbol) {
   
   var url = _apiUrl + "&symbol=" + symbol
   
-  console.log(url);
+ // console.log(url);
 
   var request = https.get(url, function (response) {
     // data is streamed in chunks from the server
@@ -41,14 +41,14 @@ module.exports.getPrice = function(req, res, symbol) {
 
 module.exports.returnPrice = function(symbol) {
   var url = _apiUrl + "&symbol=" + symbol
-  console.log(url);
+  
   var request = https.get(url, function (response) {
     // data is streamed in chunks from the server
     // so we have to handle the "data" event    
     var buffer = "", 
       data,
       route;
-
+    
     response.on("data", function (chunk) {
       buffer += chunk;
     }); 
@@ -60,11 +60,13 @@ module.exports.returnPrice = function(symbol) {
         // finished transferring data
         // dump the raw data
         data = JSON.parse(buffer);
-        // console.log(data);
+        
         var stockData = data['Time Series (Daily)']
         var keys = Object.keys(stockData);
+        console.log(parseFloat(stockData[keys[0]]['4. close']));
         return parseFloat(stockData[keys[0]]['4. close']);
       }
     }); 
   }); 
+  
 }

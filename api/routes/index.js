@@ -8,12 +8,15 @@ var boughtStocksCtrl = require('../controllers/boughtStocks.controller.js');
 router
   .route('/users/:username/stocks')
   .get(boughtStocksCtrl.bStocksGetAll)
+  
+router
+  .route('/users/:username/stocks')
   .post(boughtStocksCtrl.bStocksBuy)
   
 router
   .route('/users/:username/stocks/:symbol')
-  // .get(boughtStocksCtrl.bStocksGetOne) // currently no data need for single display
-  // .post(boughtStocksCtrl.bstockBuy)
+  // .get(boughtStocksCtrl.bStocksGetOne) // currently no data. need for single display
+  //.post(boughtStocksCtrl.bstockBuy)
   .delete(boughtStocksCtrl.bStocksSellAll) // sell all stocks
   
 router
