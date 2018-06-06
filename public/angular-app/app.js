@@ -5,7 +5,9 @@ function config($httpProvider, $routeProvider) {
   
   $routeProvider
     .when('/', {
-      templateUrl: 'angular-app/main/main.html',
+      templateUrl: 'angular-app/mainpage/main.html',
+      controller: MainPageController,
+      controllerAs: 'vm',
       access: {
         restricted : false
       }

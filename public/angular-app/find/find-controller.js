@@ -2,27 +2,27 @@ angular.module('cdfinance').controller("FindController", FindController);
 
 function FindController($http) {
   var vm = this;
-  var isfound = true;
+  
   console.log("findController");
+ 
   vm.find = function() {
-    var symbol = vm.symbol
-    console.log(symbol)
+    var symbol = vm.symbol;
     
     $http.get("/api/stocks/" + symbol).then(function(response) {
-      console.log("found stock")
-      var stockprice = response.data.price
+       vm.isFound=true;
+      console.log(vm.isFound);
+     
+      var stockprice = response.data.price;
       vm.stockprice = stockprice;
     }).catch(function(error) {
       if (error) {
-        isfound=false;
+        vm.isFound=false;
         vm.error = error;
-        console.log(vm.error);
       }
       else
       {
-        isfound=true;
+        vm.isFound = true;
       }
-      
-    })
-  }
+    });
+  };
 }
