@@ -5,6 +5,9 @@
 <p>mongoimport --db CDFinance --collection stocks --type csv --headerline api/data/nasdaq.csv </p>
 <p>mongoimport --db CDFinance --collection stocks --type csv --headerline api/data/amex.csv </p>
 
+Checkin:
+
+David: branched and merged
 <p>Here's my change -Mike</p>
 SC
 This is Surekha. 
