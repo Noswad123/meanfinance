@@ -8,7 +8,7 @@ module.exports.stocksGetPrice = function(req, res) {
   var isFound=false;
 
   var symbols = req.params.symbol
-  var symbol = symbols.toLocaleUpperCase();
+var symbol = symbols.toLocaleUpperCase();
   console.log("looking up symbol:", symbol);
   
   Stock

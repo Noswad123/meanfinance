@@ -7,8 +7,10 @@ function DashboardController( $http, $window, AuthFactory, jwtHelper, $location)
     var decodedToken = jwtHelper.decodeToken(token);
     var username = decodedToken.username;
     
+    
     $http.get('/api/users/'+ username +"/stocks").then(function(response) {
       vm.stocks = response.data;
+      console.log(vm);
     }).catch(function(error) {
       console.log(error);
     })
@@ -18,4 +20,6 @@ function DashboardController( $http, $window, AuthFactory, jwtHelper, $location)
   } else {
     $location.path('/');
   }
+  
+
 }
