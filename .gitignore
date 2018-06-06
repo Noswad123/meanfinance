@@ -57,3 +57,9 @@ typings/
 # dotenv environment variables file
 .env
 
+database/CDFinance.0
+database/CDFinance.ns
+database/local.0
+database/local.ns
+database/meanhotel.0
+database/mongod.lock
