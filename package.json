@@ -1,7 +1,7 @@
 {
   "name": "meanfinance",
-  "version": "1.0.0",
-  "description": "Stock buying and selling app for use in CareerDevs Introductory Agile week",
+  "version": "2.0.0",
+  "description": "Git Gators Stock buying and selling app for use in CareerDevs Introductory Agile week",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/crcnum4/meanfinance.git"
+    "url": "https://github.com/Noswad123/meanfinance.git"
   },
   "author": "Clifton Choiniere",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/crcnum4/meanfinance/issues"
+    "url": "https://trello.com/b/eX76H2lJ/careerdevs-agile-week"
   },
-  "homepage": "https://github.com/crcnum4/meanfinance#readme",
+  "homepage": "https://github.com/Noswad123/meanfinance.git#readme",
   "dependencies": {
     "angular": "^1.6.6",
     "angular-jwt": "^0.1.9",
@@ -25,10 +25,10 @@
     "body-parser": "^1.18.1",
     "express": "^4.15.4",
     "jsonwebtoken": "^8.0.1",
-    "mongodb": "^2.2.31",
-    "mongoose": "^4.11.11"
+    "mongodb": "^3.0.10",
+    "mongoose": "^5.1.4"
   },
   "devDependencies": {
-    "mocha": "^3.5.3"
+    "mocha": "^5.2.0"
   }
 }
