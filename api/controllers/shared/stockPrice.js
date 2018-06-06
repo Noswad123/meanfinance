@@ -65,7 +65,7 @@ module.exports.returnPrice = function(symbol) {
         var keys = Object.keys(stockData);
         //console.log(parseFloat(stockData[keys[0]]['4. close']));
         price=parseFloat(stockData[keys[0]]['4. close']);
-        console.log(this);
+        
         return parseFloat(stockData[keys[0]]['4. close']);
       }
     }); 
