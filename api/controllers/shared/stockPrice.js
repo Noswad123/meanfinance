@@ -39,11 +39,11 @@ module.exports.getPrice = function(req, res, symbol) {
   }); 
 }
 
-module.exports.returnPrice = function(symbol,callback) {
+module.exports.returnPrice = function(symbol) {
   var url = _apiUrl + "&symbol=" + symbol
   var _apiKey= "QF6UAP0QGES2OVFF";
   //var url = _apiUrl +  symbol+"&apikey="+_apiKey;
-  //var price;
+  var price;
 
   var request =https.get(url, function (response) {
     // data is streamed in chunks from the server
@@ -67,12 +67,11 @@ module.exports.returnPrice = function(symbol,callback) {
         var stockData = data['Time Series (Daily)']
         var keys = Object.keys(stockData);
         console.log(parseFloat(stockData[keys[0]]['4. close']));
-       callback( parseFloat(stockData[keys[0]]['4. close']));
+        price=parseFloat(stockData[keys[0]]['4. close']);
+       //callback( parseFloat(stockData[keys[0]]['4. close']));
       }
     }); 
     request.end()
   }); 
-
-   
  
 }

@@ -2,8 +2,7 @@ var mongoose = require('mongoose');
 var Stock = mongoose.model('Stock');
 var User = mongoose.model('User');
 var stockPrice = require('./shared/stockPrice.js')
-var Async = require('asyncawait/async');
-var Await = require('asyncawait/await');
+
 var prices = [];
 
 
@@ -44,7 +43,7 @@ module.exports.bStocksGetAll = function(req, res) {
         var temp;
         stocks.forEach( (stock) => {
           console.log(stock._id);
-          temp = stockPrice.returnPrice(stock._id,returnValue);
+          temp = stockPrice.returnPrice(stock._id);
           console.log("temp is:" + temp);
           prices.push(temp);
         });
@@ -79,7 +78,7 @@ module.exports.bStocksBuy = function(req, res) {
           .json({"message" : "Stock not valid"});
       } else {
         //stock is valid. get the stocks price.)
-        var price = stockPrice.returnPrice(symbol,returnValue);
+        var price = stockPrice.returnPrice(symbol);
         var cost = parseInt(req.body.amount) * price;
         
         //find the user

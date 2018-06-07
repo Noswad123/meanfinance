@@ -5,9 +5,9 @@ function FindController($http) {
   
   console.log("findController");
  
-  vm.find = function() {
+  vm.find = function(text) {
     var symbol = vm.symbol;
-    
+    if(vm.symbol!=""&&vm.symbol!=null){
     $http.get("/api/stocks/" + symbol).then(function(response) {
        vm.isFound=true;
       console.log(vm.isFound);
@@ -25,4 +25,5 @@ function FindController($http) {
       }
     });
   };
+  }
 }
