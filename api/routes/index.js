@@ -10,14 +10,15 @@ router
   .get(boughtStocksCtrl.bStocksGetAll)
   
 router
-  .route('/users/:username/stocks')
+  .route('/users/:username/stocks/:symbol')
   .post(boughtStocksCtrl.bStocksBuy)
   
 router
   .route('/users/:username/stocks/:symbol')
+   .delete(boughtStocksCtrl.bStocksSellAll) // sell all stocks
   // .get(boughtStocksCtrl.bStocksGetOne) // currently no data. need for single display
   //.post(boughtStocksCtrl.bstockBuy)
-  .delete(boughtStocksCtrl.bStocksSellAll) // sell all stocks
+ 
   
 router
   .route('/users/:username/deposit')

@@ -5,7 +5,7 @@ function BuyController($http, $window, AuthFactory, jwtHelper, $location) {
   
     vm.find = function() {
     var symbol = vm.symbol;
-    
+    console.log(symbol);
     $http.get("/api/stocks/" + symbol).then(function(response) {
        vm.isFound=true;
       var stockprice = response.data.price;
@@ -28,17 +28,16 @@ function BuyController($http, $window, AuthFactory, jwtHelper, $location) {
       var decodedToken = jwtHelper.decodeToken(token);
       var username = decodedToken.username;
       
-      var data = {"symbol" : vm.symbol, "amount": vm.amount}
-      
-     $http.post('/api/users/'+ username +"/stocks", data).then(function(response) {
+      var data = {"symbol" : vm.symbol.toLocaleUpperCase(), "amount": vm.amount}
+      console.log(data);
+     $http.post('/api/users/'+ username +"/stocks/"+vm.symbol, data).then(function(response) {
         //check the responses
-        console.log(response);
-        
+             $location.path('/dashboard');
       }).catch(function(error) {
         console.log(error);
         
       });
-      $location.path('/dashboard');
+      
     } else {
       $location.path('/');
     }

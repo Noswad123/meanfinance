@@ -3,13 +3,16 @@
   <p>{{ vm.message }}</p>
 </div>
 
+<div ng-if="vm.error" class="alert alert-danger" role="alert">
+  {{ vm.error }}
+</div>
 <form ng-hide="vm.message" name="find" ng-submit="vm.find()">
   <div class="form-group">
     <label for="symbol">Symbol</label>
     <input type="text" class="form-control" id="symbol" placeholder="Symbol" ng-keyUp="vm.find()" ng-model="vm.symbol" autocapitalize="characters">
   </div>
   <button type="submit" class="btn btn-success">find</button>
-  
+
   <div ng-if="vm.isFound">
     <p>{{vm.symbol}} is dcurrently priced at {{vm.stockprice | currency}}</p>
   </div>
