@@ -6,7 +6,7 @@ function config($httpProvider, $routeProvider) {
   $routeProvider
     .when('/', {
       templateUrl: 'angular-app/mainpage/main.html',
-      controller: MainPageController,
+      controller: "MainPageController",
       controllerAs: 'vm',
       access: {
         restricted : false
@@ -14,7 +14,7 @@ function config($httpProvider, $routeProvider) {
     })
     .when('/register', {
       templateUrl: 'angular-app/register/register.html',
-      controller: RegisterController,
+      controller: "RegisterController",
       controllerAs: 'vm',
       access: {
         restricted: false
@@ -22,7 +22,7 @@ function config($httpProvider, $routeProvider) {
     })
     .when('/dashboard', {
       templateUrl: 'angular-app/dashboard/dashboard.html',
-      controller: DashboardController,
+      controller: "DashboardController",
       controllerAs: 'vm',
       access: {
         restricted: true
@@ -30,7 +30,7 @@ function config($httpProvider, $routeProvider) {
     })
     .when('/buy', {
       templateUrl: 'angular-app/buy/buy.html',
-      controller: BuyController,
+      controller: "BuyController",
       controllerAs: 'vm',
       access: {
         restricted: true
@@ -38,15 +38,23 @@ function config($httpProvider, $routeProvider) {
     })
     .when('/find', {
       templateUrl: 'angular-app/find/find.html',
-      controller: FindController,
+      controller: "FindController",
       controllerAs: 'vm',
       access: {
         restricted: false
       }
+    })
+    .when('/detail', {
+      templateUrl: 'angular-app/detail/detail.html',
+      controller: "DetailController",
+      controllerAs: 'vm',
+      access: {
+        restricted : false
+      }
     }) 
     .when('/deposit', {
       templateUrl: 'angular-app/deposit/deposit.html',
-      controller: DepositController,
+      controller: "DepositController",
       controllerAs: 'vm',
       access: {
         restricted: true
