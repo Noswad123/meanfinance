@@ -27,6 +27,10 @@ router
 router
   .route('/users/:username')
   .get(usersCtrl.getUserBalance)
+
+router
+  .route('/stocks/')
+  .get(stocksCtrl.stocksGetAll); 
   
 router
   .route('/stocks/:symbol')
