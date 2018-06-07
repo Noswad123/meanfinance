@@ -1,5 +1,5 @@
 body{
-    background-color: #A53F2B;
+    /*background-color: #A53F2B;*/
     color:black;
     }
     input{
@@ -12,9 +12,25 @@ body{
         background-color:#F9F9F9;
     }
     #page-margin {
-    padding: 30px;
+    padding-top: 32px;
+}
+.bg {
+    width: 100vw;
+    z-index: -1;
+    position:fixed;
+    min-height:100%;
+    min-width:100%;
 }
 mh-navigation{
     height:50px;
     width:100%;
+}
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0,0,0,.5);
+    color: white;
+    text-align: center;
 }
