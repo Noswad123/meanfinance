@@ -1,3 +1,20 @@
-#page-margin {
+body{
+    background-color: #A53F2B;
+    color:black;
+    }
+    input{
+        max-width: 300px;
+    }
+    #title{
+        color:white;
+    }
+    tr{
+        background-color:#F9F9F9;
+    }
+    #page-margin {
     padding: 30px;
+}
+mh-navigation{
+    height:50px;
+    width:100%;
 }

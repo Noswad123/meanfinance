@@ -41,8 +41,8 @@ module.exports.getPrice = function(req, res, symbol) {
 
 module.exports.returnPrice = function(symbol) {
   var url = _apiUrl + "&symbol=" + symbol
-  
-  var request = https.get(url, function (response) {
+  var price;
+  var request =https.get(url, function (response) {
     // data is streamed in chunks from the server
     // so we have to handle the "data" event    
     var buffer = "", 
@@ -63,10 +63,13 @@ module.exports.returnPrice = function(symbol) {
         
         var stockData = data['Time Series (Daily)']
         var keys = Object.keys(stockData);
-        console.log(parseFloat(stockData[keys[0]]['4. close']));
+        //console.log(parseFloat(stockData[keys[0]]['4. close']));
+        price=parseFloat(stockData[keys[0]]['4. close']);
+        
         return parseFloat(stockData[keys[0]]['4. close']);
       }
     }); 
   }); 
   
+ 
 }
