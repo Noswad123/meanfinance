@@ -1,16 +1,39 @@
 <h1>Find Stocks</h1>
-<div ng-if="vm.message" class="alert alert-success" role="alert">
-  <p>{{ vm.message }}</p>
-</div>
 
 <form ng-hide="vm.message" name="find" ng-submit="vm.find()">
   <div class="form-group">
     <label for="symbol">Symbol</label>
-    <input type="text" class="form-control" id="symbol" placeholder="Symbol" ng-keyUp="vm.find()" ng-model="vm.symbol" autocapitalize="characters">
+    <input type="text" class="form-control" id="symbol" placeholder="Symbol" ng-model="search">
   </div>
-  <button type="submit" class="btn btn-success">find</button>
+  <!--<button type="submit" class="btn btn-success">find</button>-->
   
-  <div ng-if="vm.isFound">
-    <p>{{vm.symbol}} is dcurrently priced at {{vm.stockprice | currency}}</p>
-  </div>
+<!--  <div ng-if="vm.isFound">-->
+<!--    <p>{{vm.symbol}} is dcurrently priced at {{vm.stockprice | currency}}</p>-->
+<!--  </div>-->
 </form>
+
+<div ng-if="vm.message" class="alert alert-success" role="alert">
+  <p>{{ vm.message }}</p>
+</div>
+
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr class="table-dark">
+        <th scope="col">Symbol</th>
+        <th scope="col">Companies</th>
+        <th scope="col">Sector</th>
+        <th scope="col">Summary</th>
+      </tr>
+    </thead>
+    <tbody> 
+      <tr dir-paginate="stock in vm.stocks | filter: search | itemsPerPage: 25" [total-items="6757"]>
+        <td><a ng-href="/#!/stock/{{ stock._id }}">{{ stock.Symbol }}</a></td>
+        <td>{{ stock.name }}</td>
+        <td>{{ stock.sector }}</td>
+        <td>{{ stock.summary }}</td>
+      </tr>
+    </tbody>
+  </table> 
+<dir-pagination-controls></dir-pagination-controls>
+</div>

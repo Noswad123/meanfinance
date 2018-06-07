@@ -3,6 +3,26 @@ var Stock = mongoose.model('Stock');
 var https = require('https');
 var stockPrice = require('./shared/stockPrice.js')
 
+module.exports.stocksGetAll = function(req, res){
+    
+    console.log('Get the stocks');
+    Stock
+        .find()
+        .exec(function(err, stocks){
+            if(err){
+                console.log("Error finding stocks");
+                res
+                    .status(500)
+                    .json(err);
+            } else {
+                console.log("Found stocks", stocks.length);
+                res
+                    .json(stocks);
+            }
+        });
+};    
+
+
 module.exports.stocksGetPrice = function(req, res) {
 
   var isFound=false;
@@ -28,6 +48,6 @@ var symbol = symbols.toLocaleUpperCase();
         var price = stockPrice.getPrice(req, res, symbol);
         
       }
-    })
+    });
   
-}
+};
