@@ -1,4 +1,5 @@
 <h1>Find Stocks</h1>
+
 <form ng-hide="vm.message" name="find" ng-submit="vm.findAll()">
   <div class="form-group">
     <input type="text" class="form-control" ng-keyDown="vm.findAll()" id="symbol" placeholder="Enter Symbol, Sector, or Company" ng-model="search">
@@ -21,7 +22,7 @@
       </tr>
     </thead>
     <tbody> 
-        <tr ng-repeat= "stock in vm.stocks | filter: search">
+        <tr dir-paginate= "stock in vm.stocks | filter: search | itemsPerPage: 25" [total-items="6800"]>
         <td><a ng-href="/#!/stock/{{ stock._id }}">{{ stock._id }}</a></td>
         <td>{{ stock.name }}</td>
         <td>{{ stock.sector }}</td>
@@ -29,6 +30,7 @@
       </tr>
     </tbody>
   </table> 
+  <dir-pagination-controls></dir-pagination-controls>
 </div>
 
 

@@ -1,4 +1,4 @@
-angular.module('cdfinance', ['ngRoute', 'angular-jwt']).config(config).run(run);
+angular.module('cdfinance', ['ngRoute', 'angular-jwt', 'angularUtils.directives.dirPagination']).config(config).run(run);
 
 function config($httpProvider, $routeProvider) {
   $httpProvider.interceptors.push('AuthInterceptor');
