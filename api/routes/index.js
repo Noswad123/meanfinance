@@ -4,10 +4,15 @@ var router = express.Router();
 var stocksCtrl = require('../controllers/stocks.controller.js');
 var usersCtrl = require('../controllers/users.controller.js');
 var boughtStocksCtrl = require('../controllers/boughtStocks.controller.js');
+var stockPrice= require('../controllers/shared/stockPrice.js');
 
 router
   .route('/users/:username/stocks')
   .get(boughtStocksCtrl.bStocksGetAll)
+
+router
+  .route('/seansidea/:symbol')
+  .get(stockPrice.returnPrice)
   
 router
   .route('/users/:username/stocks/:symbol')
@@ -27,6 +32,10 @@ router
 router
   .route('/users/:username')
   .get(usersCtrl.getUserBalance)
+
+router
+  .route('/stocks/')
+  .get(stocksCtrl.stocksGetAll); 
   
 router
   .route('/stocks/:symbol')

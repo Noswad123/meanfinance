@@ -4,5 +4,5 @@ angular.module('cdfinance').controller('MainPageController', MainPageController)
 
 function MainPageController() {
     var vm = this;
-    vm.title = 'We help find, buy and sell the best stocks';
+    vm.title = 'Gator Gibbon Investment Group';
 }

@@ -25,8 +25,8 @@ module.exports.register = function(req, res) {
 }
 
 module.exports.login = function(req, res) {
-  var username = req.body.username
-  var password = req.body.password
+  var username = req.body.username;
+  var password = req.body.password;
   
   User
     .findOne({username: username})
@@ -35,7 +35,8 @@ module.exports.login = function(req, res) {
         res
           .status(400)
           .json(err);
-      } else {
+      }
+        else if (user) {
         if (bcrypt.compareSync(password, user.password)) {
           console.log("user found");
           var token = jwt.sign({ username: user.username }, "cdfinance", {expiresIn: 3600});
@@ -43,10 +44,16 @@ module.exports.login = function(req, res) {
             .status(200)
             .json({success: true, token: token});
         } else {
+          console.log("username or password incorrect");
           res
             .status(401)
             .json("username or password incorrect");
         }
+      } else {
+        console.log("user not found");
+        res
+          .status(404)
+          .json("user not found");
       }
     })
 }

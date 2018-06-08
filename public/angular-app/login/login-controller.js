@@ -17,15 +17,15 @@ function LoginController($http, $location, $window, AuthFactory, jwtHelper) {
         username: vm.username,
         password: vm.password
       };
-      
       $http.post('/api/users/login', user).then(function(response) {
         if (response.data.success) {
+          console.log(response.data);
           $window.sessionStorage.token = response.data.token;
           AuthFactory.isLoggedIn = true;
           var token = $window.sessionStorage.token;
           var decodedToken = jwtHelper.decodeToken(token);
           vm.loggedInUser = decodedToken.username;
-        }
+        } 
       }).catch(function(error) {
         console.log(error);
       })

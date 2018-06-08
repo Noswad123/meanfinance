@@ -3,6 +3,8 @@ var Stock = mongoose.model('Stock');
 var User = mongoose.model('User');
 var stockPrice = require('./shared/stockPrice.js')
 
+var prices = [];
+
 
 module.exports.bStocksGetAll = function(req, res) {
   
@@ -38,21 +40,24 @@ module.exports.bStocksGetAll = function(req, res) {
          
         //found the user. pull down the users stocks as well as the stocks current price
         var stocks = user.stocks;
-        var prices = [];
-        //var temp;
+        var temp;
         stocks.forEach( (stock) => {
-          temp=stockPrice.returnPrice(stock._id)
+          console.log(stock._id);
+          temp = stockPrice.returnPrice(stock._id);
+          console.log("temp is:" + temp);
           prices.push(temp);
         });
+
         res
           .status(200)
           .json({"stocks" : stocks, "prices" : prices})
       }
     })
-    console.log(" temp data: " + temp);
 }
 
-
+function returnValue(value){
+  return value;
+}
 
 module.exports.bStocksBuy = function(req, res) {
   var symbol = req.body.symbol;
@@ -169,7 +174,7 @@ module.exports.bStocksSellAll = function(req, res) {
         //found the user sell all stock.
         var symbol = req.params.symbol;
         var stock = user.stocks.id(symbol);
-        var price = stockPrice.returnPrice(symbol);
+        var price = stockPrice.returnPrice(symbol,returnValue);
         var income = price * stock.amount
         // we know how much money we are earning for this. give this user more money and
         // remove the stocks

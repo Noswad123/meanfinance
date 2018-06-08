@@ -1,19 +1,34 @@
 <h1>Find Stocks</h1>
+<form ng-hide="vm.message" name="find" ng-submit="vm.findAll()">
+  <div class="form-group">
+    <input type="text" class="form-control" ng-keyDown="vm.findAll()" id="symbol" placeholder="Enter Symbol, Sector, or Company" ng-model="search">
+  </div>
+</form>
+
 <div ng-if="vm.message" class="alert alert-success" role="alert">
   <p>{{ vm.message }}</p>
 </div>
 
-<div ng-if="vm.error" class="alert alert-danger" role="alert">
-  {{ vm.error }}
-</div>
-<form ng-hide="vm.message" name="find" ng-submit="vm.find()">
-  <div class="form-group">
-    <label for="symbol">Symbol</label>
-    <input type="text" class="form-control" id="symbol" placeholder="Symbol" ng-keyUp="vm.find()" ng-model="vm.symbol" autocapitalize="characters">
-  </div>
-  <button type="submit" class="btn btn-success">find</button>
 
-  <div ng-if="vm.isFound">
-    <p>{{vm.symbol}} is dcurrently priced at {{vm.stockprice | currency}}</p>
-  </div>
-</form>
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr class="table-dark">
+        <th scope="col">Symbol</th>
+        <th scope="col">Companies</th>
+        <th scope="col">Sector</th>
+        <th scope="col">Last Sale</th>
+      </tr>
+    </thead>
+    <tbody> 
+        <tr ng-repeat= "stock in vm.stocks | filter: search">
+        <td><a ng-href="/#!/stock/{{ stock._id }}">{{ stock._id }}</a></td>
+        <td>{{ stock.name }}</td>
+        <td>{{ stock.sector }}</td>
+        <td>{{ stock.lastSale | currency}}</td>
+      </tr>
+    </tbody>
+  </table> 
+</div>
+
+
