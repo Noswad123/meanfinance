@@ -21,6 +21,7 @@
     "angular": "^1.6.6",
     "angular-jwt": "^0.1.9",
     "angular-route": "^1.6.6",
+    "angular-utils-pagination": "^0.11.1",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.1",
     "express": "^4.15.4",
