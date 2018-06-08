@@ -3,15 +3,15 @@
     <tr>
       <th>Symbol</th>
       <th>Shares</th>
-      <th>Price</th>
+      <th>Value</th>
       <th></th>
     </tr>
   </thead>
   <tbody>
-    <tr ng-repeat="stock in vm.stocks.stocks" ng-init="counter = 0">
+    <tr ng-repeat="stock in vm.stocks.stocks"  ng-click="vm.detailView(stock._id)">
       <td>{{stock._id}} </td>
       <td>{{stock.amount}}</td>
-      <td>{{stock.price}}</td>
+      <td>{{stock.price*stock.amount|currency}}</td>
       <td>
         
       </td>

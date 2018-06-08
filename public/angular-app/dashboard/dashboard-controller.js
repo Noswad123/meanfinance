@@ -22,6 +22,7 @@ function DashboardController( $http, $window, AuthFactory, jwtHelper, $location)
   } else {
     $location.path('/');
   }
+  
   vm.find = function(stocks) {
     stocks.forEach((stock)=>{
       $http.get("/api/stocks/" + stock._id).then(function(response) {
@@ -36,5 +37,8 @@ function DashboardController( $http, $window, AuthFactory, jwtHelper, $location)
       });
     })
   }
-
+  
+  vm.detailView=function(symbol){
+      $location.path('/detail/'+symbol)
+  }
 }
