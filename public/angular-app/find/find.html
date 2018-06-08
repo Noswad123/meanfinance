@@ -1,7 +1,7 @@
 <div id="find">
   <div id="text">
     <h1>Find Stocks</h1>
-    <input type="text" class="form-control" ng-keyDown="vm.findAll()" id="symbol" placeholder="Enter Symbol, Sector, or Company" ng-model="vm.search">
+    <input type="text" class="form-control" ng-change="vm.findAll()" id="symbol" placeholder="Enter Symbol, Sector, or Company" ng-model="vm.search">
   </div>
  
   <div class="container">
@@ -16,7 +16,7 @@
       </thead>
       <tbody> 
     
-          <tr class="findRow" ng-repeat= "stock in vm.stocks | filter: search" ng-click="vm.detailView(stock._id)">
+          <tr class="findRow" ng-repeat= "stock in vm.stocks | filter: search" ng-click="vm.detailView(stock._id)" ng-if="vm.search != ''">
             
           <td>{{ stock._id }} </td>
           <td>{{ stock.name }}</td>
