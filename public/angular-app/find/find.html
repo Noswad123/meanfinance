@@ -17,7 +17,7 @@
       </thead>
       <tbody> 
     
-        <tr class="findRow" dir-paginate= "stock in vm.stocks | filter: search | itemsPerPage: 25" [total-items="6800"] ng-click="vm.detailView(stock._id)" ng-if="vm.search != ''">
+        <tr class="findRow" dir-paginate= "stock in vm.stocks | filter: vm.search | itemsPerPage: 25" [total-items="6800"] ng-click="vm.detailView(stock._id)" ng-if="vm.search != ''">
           <td>{{ stock._id }} </td>
           <td>{{ stock.name }}</td>
           <td>{{ stock.sector }}</td>
