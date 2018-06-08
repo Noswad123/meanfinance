@@ -1,3 +1,4 @@
+
 <div id="find">
   <div id="text">
     <h1>Find Stocks</h1>
@@ -16,8 +17,7 @@
       </thead>
       <tbody> 
     
-          <tr class="findRow" ng-repeat= "stock in vm.stocks | filter: search" ng-click="vm.detailView(stock._id)" ng-if="vm.search != ''">
-            
+        <tr class="findRow" dir-paginate= "stock in vm.stocks | filter: search | itemsPerPage: 25" [total-items="6800"] ng-click="vm.detailView(stock._id)" ng-if="vm.search != ''">
           <td>{{ stock._id }} </td>
           <td>{{ stock.name }}</td>
           <td>{{ stock.sector }}</td>
@@ -26,8 +26,43 @@
         </tr>
       </tbody>
     </table> 
-   
+   <dir-pagination-controls></dir-pagination-controls>
   </div>
 </div>
+<!--=======-->
+<!--<h1>Find Stocks</h1>-->
+
+<!--<form ng-hide="vm.message" name="find" ng-submit="vm.findAll()">-->
+<!--  <div class="form-group">-->
+<!--    <input type="text" class="form-control" ng-keyDown="vm.findAll()" id="symbol" placeholder="Enter Symbol, Sector, or Company" ng-model="search">-->
+<!--  </div>-->
+<!--</form>-->
+
+<!--<div ng-if="vm.message" class="alert alert-success" role="alert">-->
+<!--  <p>{{ vm.message }}</p>-->
+<!--</div>-->
+
+
+<!--<div class="container">-->
+<!--  <table class="table table-striped">-->
+<!--    <thead>-->
+<!--      <tr class="table-dark">-->
+<!--        <th scope="col">Symbol</th>-->
+<!--        <th scope="col">Companies</th>-->
+<!--        <th scope="col">Sector</th>-->
+<!--        <th scope="col">Last Sale</th>-->
+<!--      </tr>-->
+<!--    </thead>-->
+<!--    <tbody> -->
+<!--        <tr dir-paginate= "stock in vm.stocks | filter: search | itemsPerPage: 25" [total-items="6800"]>-->
+<!--        <td><a ng-href="/#!/stock/{{ stock._id }}">{{ stock._id }}</a></td>-->
+<!--        <td>{{ stock.name }}</td>-->
+<!--        <td>{{ stock.sector }}</td>-->
+<!--        <td>{{ stock.lastSale | currency}}</td>-->
+<!--      </tr>-->
+<!--    </tbody>-->
+<!--  </table> -->
+<!--  <dir-pagination-controls></dir-pagination-controls>-->
+<!--</div>-->
 
 
