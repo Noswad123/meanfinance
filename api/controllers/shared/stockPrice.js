@@ -18,14 +18,14 @@ function GetAPIurl() {
     }
   });
 
-  return `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&apikey=${localAPIkey}&outputsize=compact`
+  return `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&apikey=${localAPIkey}&outputsize=compact`;
 }
 
 const _apiUrl = GetAPIurl();
 
 module.exports.getPrice = function(req, res, symbol) {
 
-  var url = _apiUrl + "&symbol=" + symbol
+  var url = _apiUrl + "&symbol=" + symbol;
 
   // console.log(url);
 
@@ -44,7 +44,7 @@ module.exports.getPrice = function(req, res, symbol) {
       if (err) {
         res
           .status(500)
-          .json(err)
+          .json(err);
       }
       else {
         // finished transferring data
@@ -60,11 +60,11 @@ module.exports.getPrice = function(req, res, symbol) {
       }
     });
   });
-}
+};
 
 module.exports.returnPrice = function(symbol) {
-  var url = _apiUrl + "&symbol=" + symbol
-  var _apiKey = "QF6UAP0QGES2OVFF";
+  var url = _apiUrl + "&symbol=" + symbol;
+  //var _apiKey = "QF6UAP0QGES2OVFF";
   //var url = _apiUrl +  symbol+"&apikey="+_apiKey;
   var price;
   var request = https.get(url, function(response) {
@@ -80,14 +80,14 @@ module.exports.returnPrice = function(symbol) {
 
     response.on("end", function(err) {
       if (err) {
-        return err
+        return err;
       }
       else {
         // finished transferring data
         // dump the raw data
         data = JSON.parse(buffer);
 
-        var stockData = data['Time Series (Daily)']
+        var stockData = data['Time Series (Daily)'];
         var keys = Object.keys(stockData);
         //console.log(parseFloat(stockData[keys[0]]['4. close']));
         price = parseFloat(stockData[keys[0]]['4. close']);
@@ -97,5 +97,4 @@ module.exports.returnPrice = function(symbol) {
     });
   });
 
-
-}
+};
