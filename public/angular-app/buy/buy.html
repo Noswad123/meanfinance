@@ -1,10 +1,6 @@
+
 <h1>Buy Stocks</h1>
-<div ng-if="vm.message" class="alert alert-success" role="alert">
-  <p>{{ vm.message }}</p>
-</div>
-<div ng-if="vm.error" class="alert alert-danger" role="alert">
-  {{ vm.error }}
-</div>
+
 <form ng-hide="vm.message" name="buy" ng-submit="vm.buy()">
   <div class="form-group">
     <label for="symbol">Symbol</label>
@@ -18,3 +14,9 @@
   </div>
   <button type="submit" class="btn btn-success">Buy</button>
 </form>
+
+
+my money: {{vm.balance}}
+<p>
+stocks I just bought cost: {{vm.price * vm.amount}}
+</p>

@@ -3,19 +3,24 @@
     <tr>
       <th>Symbol</th>
       <th>Shares</th>
-      <th>Total</th>
+      <th>Price</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     <tr ng-repeat="stock in vm.stocks.stocks" ng-init="counter = 0">
-      <td>{{stock._id}}</td>
+      <td>{{stock._id}} </td>
       <td>{{stock.amount}}</td>
-      <td>{{stock.prices}}</td>
+      <td>{{stock.price}}</td>
+      <td>
+        
+      </td>
     </tr>
     <tr>
-      <td></td>
+      
       <td><strong>Total Balance</strong></td>
       <td>{{vm.balance | currency}}</td>
+      <td></td>
     </tr>
   </tbody>
 </table>

@@ -11,8 +11,8 @@ router
   .get(boughtStocksCtrl.bStocksGetAll)
 
 router
-  .route('/seansidea/:symbol')
-  .get(stockPrice.returnPrice)
+  .route('/users/:username/balance')
+  .put(usersCtrl.updateBalance)
   
 router
   .route('/users/:username/stocks/:symbol')

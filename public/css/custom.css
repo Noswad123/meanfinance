@@ -6,6 +6,14 @@ body{
     background-position: 20% 10%;
     color:black;
     }
+    .dashInput{
+        width:100px;
+        height: 20px;
+        display:block;
+    }
+#buy div{
+        min-height: 80vh;
+    }
     input{
         max-width: 300px;
     }

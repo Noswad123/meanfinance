@@ -44,7 +44,7 @@ function config($httpProvider, $routeProvider) {
         restricted: false
       }
     })
-    .when('/detail', {
+    .when('/detail/:symbol', {
       templateUrl: 'angular-app/detail/detail.html',
       controller: "DetailController",
       controllerAs: 'vm',
