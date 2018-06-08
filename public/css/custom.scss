@@ -1,0 +1,67 @@
+body{
+    /*background-color: #A53F2B;*/
+    background-image: url("../images/money.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 20% 10%;
+    color:black;
+    }
+    input{
+        max-width: 300px;
+    }
+        #title{
+        color:white;
+    }
+    tr{
+        background-color:#F9F9F9;
+    }
+    #page-margin {
+    padding-top: 32px;
+    }
+
+mh-navigation{
+    height:50px;
+    width:100%;
+}
+    #dashboard{
+        
+    }
+    
+#find{
+    #text{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        margin-bottom:20px;
+    }
+    .findRow{
+        &:hover{
+            cursor: pointer;
+            background-color:grey;
+        }
+    }
+}
+
+   
+#buy {
+        display:flex;
+        justify-content: space-between;
+        padding:20px;
+        width:100%;
+}
+    
+
+.footer {
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items:center;
+    height:50px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0,0,0,.5);
+    color: #999999;
+    
+}

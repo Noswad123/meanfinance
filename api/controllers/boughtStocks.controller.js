@@ -61,9 +61,8 @@ function returnValue(value){
 
 module.exports.bStocksBuy = function(req, res) {
   var symbol = req.body.symbol;
-  
-  console.log(req.body);
-  
+ 
+  symbol=symbol.toUpperCase();
   //check if the stock is valid
   Stock
     .findById(symbol)
@@ -80,7 +79,7 @@ module.exports.bStocksBuy = function(req, res) {
         //stock is valid. get the stocks price.)
         var price = stockPrice.returnPrice(symbol);
         var cost = parseInt(req.body.amount) * price;
-        
+        console.log("the price is: "+price)
         //find the user
         var username = req.params.username;
         

@@ -104,6 +104,34 @@ module.exports.depositFunds = function(req, res) {
     });
 }
 
+module.exports.updateBalance = function(req, res) {
+  var change;
+  var change=req.body.change;
+  var username = req.params.username;
+  
+  User
+    .findOne({username: username})
+    .exec(function(err, user) {
+      if (err) {
+        res
+          .status(400)
+          .json(err);
+      } else {
+       user.balance += change;
+       user.save(function(err, user) {
+          if (err) {
+            res
+              .status(500)
+              .json(err);
+          } else
+            res
+              .status(200)
+              .json()
+        })
+      }
+    });
+}
+
 module.exports.getUserBalance = function(req, res) {
   var username = req.params.username;
   

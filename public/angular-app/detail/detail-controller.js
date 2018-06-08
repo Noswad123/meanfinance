@@ -1,26 +1,24 @@
 angular.module('cdfinance').controller('DetailController', DetailController);
 
-function DetailController($http, $window, AuthFactory, jwtHelper, $location) {
+function DetailController($http, $location,$routeParams) {
   var vm = this;
-  console.log(this);
+ var symbol=$routeParams.symbol;
+ vm.symbol=symbol.toUpperCase();
+   console.log($routeParams);
  
-    vm.find = function() {
-    var symbol = vm.symbol;
-    console.log(symbol);
-    
-    $http.get("/api/stocks/" + symbol).then(function(response) {
+    vm.find = function(symbol) {
+      $http.get("/api/stocks/" + symbol).then(function(response) {
        vm.isFound=true;
       var stockprice = response.data.price;
       vm.stockprice = stockprice;
+      console.log(response);
     }).catch(function(error) {
       if (error) {
-        vm.isFound=false;
+        
         vm.error = error;
       }
-      else
-      {
-        vm.isFound = true;
-      }
+     
     });
   };
+  vm.find(vm.symbol);
 }

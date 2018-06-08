@@ -10,7 +10,9 @@ function DashboardController( $http, $window, AuthFactory, jwtHelper, $location)
     
     $http.get('/api/users/'+ username +"/stocks").then(function(response) {
       vm.stocks = response.data;
-      console.log(vm);
+      
+      vm.find(vm.stocks.stocks);
+      
     }).catch(function(error) {
       console.log(error);
     })
@@ -21,5 +23,22 @@ function DashboardController( $http, $window, AuthFactory, jwtHelper, $location)
     $location.path('/');
   }
   
-
+  vm.find = function(stocks) {
+    stocks.forEach((stock)=>{
+      $http.get("/api/stocks/" + stock._id).then(function(response) {
+        var stockprice = response.data.price;
+        stock.price= stockprice;
+      }).catch(function(error) {
+        if (error) {
+        
+          vm.error = error;
+        }
+     
+      });
+    })
+  }
+  
+  vm.detailView=function(symbol){
+      $location.path('/detail/'+symbol)
+  }
 }

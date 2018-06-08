@@ -1,20 +1,21 @@
-<h1>Buy Stocks</h1>
-<div ng-if="vm.message" class="alert alert-success" role="alert">
-  <p>{{ vm.message }}</p>
-</div>
-<div ng-if="vm.error" class="alert alert-danger" role="alert">
-  {{ vm.error }}
-</div>
-<form ng-hide="vm.message" name="buy" ng-submit="vm.buy()">
-  <div class="form-group">
-    <label for="symbol">Symbol</label>
-
-    <input type="text" class="form-control" id="symbol" placeholder="Symbol" ng-model="vm.symbol" autocapitalize="characters">
-
+<div id="buy">
+  <div>
+  <h1>Buy Stocks</h1>
+    <form ng-hide="vm.message" name="buy" ng-submit="vm.buy()">
+      <div class="form-group">
+        <label for="symbol">Symbol</label>
+        <input type="text" class="form-control" id="symbol" placeholder="Symbol" ng-model="vm.symbol" autocapitalize="characters">
+      </div>
+      <div class="form-group">
+        <label for="amount">Shares to Buy</label>
+        <input type="number" class="form-control" id="amount" placeholder="amount" ng-model="vm.amount">
+      </div>
+      <button type="submit" class="btn btn-success">Buy</button>
+    </form>
   </div>
-  <div class="form-group">
-    <label for="amount">Shares to Buy</label>
-    <input type="number" class="form-control" id="amount" placeholder="amount" ng-model="vm.amount">
+
+  <div>
+    <h2>My Money: </h2>
+    <h3>{{vm.balance|currency}}</h3>
   </div>
-  <button type="submit" class="btn btn-success">Buy</button>
-</form>
+</div>
