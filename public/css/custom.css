@@ -16,7 +16,7 @@ tr {
   background-color: #F9F9F9; }
 
 #page-margin {
-  padding-top: 32px; 
+  padding-top: 56px; 
   padding-bottom: 32px;
 }
 
@@ -52,5 +52,5 @@ mh-navigation {
   background-color: rgba(0, 0, 0, 0.5);
   color: #999999;
   z-index: -1; }
-
+  
 /*# sourceMappingURL=custom.css.map */
