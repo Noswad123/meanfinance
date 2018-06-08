@@ -16,7 +16,9 @@ tr {
   background-color: #F9F9F9; }
 
 #page-margin {
-  padding-top: 32px; }
+  padding-top: 32px; 
+  padding-bottom: 32px;
+}
 
 mh-navigation {
   height: 50px;
