@@ -44,6 +44,7 @@ module.exports.login = function(req, res) {
             .status(200)
             .json({success: true, token: token});
         } else {
+          console.log(res);
           console.log("username or password incorrect");
           res
             .status(401)
@@ -53,7 +54,7 @@ module.exports.login = function(req, res) {
         console.log("user not found");
         res
           .status(404)
-          .json("user not found");
+          .json({"success": false});
       }
     })
 }
